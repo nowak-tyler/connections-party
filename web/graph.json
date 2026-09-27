@@ -1,0 +1,176 @@
+{
+    "nodes": [
+        {
+            "id": "Tyler",
+            "degree": 4,
+            "community": 0
+        },
+        {
+            "id": "Alex",
+            "degree": 4,
+            "community": 0
+        },
+        {
+            "id": "Ben",
+            "degree": 4,
+            "community": 0
+        },
+        {
+            "id": "Emma",
+            "degree": 5,
+            "community": 0
+        },
+        {
+            "id": "Sarah",
+            "degree": 4,
+            "community": 0
+        },
+        {
+            "id": "Jack",
+            "degree": 4,
+            "community": 2
+        },
+        {
+            "id": "Chris",
+            "degree": 3,
+            "community": 1
+        },
+        {
+            "id": "Maya",
+            "degree": 3,
+            "community": 1
+        },
+        {
+            "id": "Noah",
+            "degree": 3,
+            "community": 1
+        },
+        {
+            "id": "Luke",
+            "degree": 4,
+            "community": 2
+        },
+        {
+            "id": "Ava",
+            "degree": 4,
+            "community": 2
+        },
+        {
+            "id": "Sofia",
+            "degree": 2,
+            "community": 2
+        }
+    ],
+    "links": [
+        {
+            "source": "Tyler",
+            "target": "Alex",
+            "reason": "College"
+        },
+        {
+            "source": "Tyler",
+            "target": "Ben",
+            "reason": "College"
+        },
+        {
+            "source": "Tyler",
+            "target": "Emma",
+            "reason": "Work"
+        },
+        {
+            "source": "Tyler",
+            "target": "Luke",
+            "reason": null
+        },
+        {
+            "source": "Alex",
+            "target": "Ben",
+            "reason": "College"
+        },
+        {
+            "source": "Alex",
+            "target": "Sarah",
+            "reason": "College"
+        },
+        {
+            "source": "Alex",
+            "target": "Emma",
+            "reason": null
+        },
+        {
+            "source": "Ben",
+            "target": "Sarah",
+            "reason": "College"
+        },
+        {
+            "source": "Ben",
+            "target": "Jack",
+            "reason": null
+        },
+        {
+            "source": "Emma",
+            "target": "Chris",
+            "reason": "Work"
+        },
+        {
+            "source": "Emma",
+            "target": "Maya",
+            "reason": "Work"
+        },
+        {
+            "source": "Emma",
+            "target": "Sarah",
+            "reason": null
+        },
+        {
+            "source": "Sarah",
+            "target": "Jack",
+            "reason": "College"
+        },
+        {
+            "source": "Jack",
+            "target": "Luke",
+            "reason": "Hometown"
+        },
+        {
+            "source": "Jack",
+            "target": "Ava",
+            "reason": "Hometown"
+        },
+        {
+            "source": "Chris",
+            "target": "Maya",
+            "reason": "Work"
+        },
+        {
+            "source": "Chris",
+            "target": "Noah",
+            "reason": "Work"
+        },
+        {
+            "source": "Maya",
+            "target": "Noah",
+            "reason": "Work"
+        },
+        {
+            "source": "Noah",
+            "target": "Ava",
+            "reason": null
+        },
+        {
+            "source": "Luke",
+            "target": "Ava",
+            "reason": "Hometown"
+        },
+        {
+            "source": "Luke",
+            "target": "Sofia",
+            "reason": "Hometown"
+        },
+        {
+            "source": "Ava",
+            "target": "Sofia",
+            "reason": "Hometown"
+        }
+    ]
+}

@@ -7,6 +7,8 @@ from src.graph import (
     create_community_map,
 )
 
+from src.export import export_graph
+
 
 def main():
 
@@ -20,22 +22,18 @@ def main():
 
     communities = detect_communities(G)
 
-    community_map = create_community_map(communities)
+    community_map = create_community_map(
+        communities
+    )
 
-    print("Nodes:")
-    print(G.nodes())
+    export_graph(
+        G,
+        degrees,
+        community_map,
+        "web/graph.json"
+    )
 
-    print("\nEdges:")
-    print(G.edges(data=True))
-
-    print("\nDegrees:")
-    print(degrees)
-
-    print("\nCommunities:")
-    print(communities)
-
-    print("\nCommunity map:")
-    print(community_map)
+    print("Created web/graph.json")
 
 
 if __name__ == "__main__":
