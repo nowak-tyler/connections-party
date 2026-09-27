@@ -1,46 +1,41 @@
-
-
 from src.data_loader import load_connections
+
+from src.graph import (
+    build_graph,
+    calculate_degrees,
+    detect_communities,
+    create_community_map,
+)
 
 
 def main():
+
     connections = load_connections(
         "data/connections.csv"
     )
 
-    for connection in connections:
-        print(connection)
+    G = build_graph(connections)
 
+    degrees = calculate_degrees(G)
 
-if __name__ == "__main__":
-    main()
+    communities = detect_communities(G)
 
+    community_map = create_community_map(communities)
 
+    print("Nodes:")
+    print(G.nodes())
 
+    print("\nEdges:")
+    print(G.edges(data=True))
 
-def add_connection(raw_data):
-    party = {}
-    for x in raw_data:
-        # Creates each person if they do not exist yet
-        if x[0] not in party:
-            party[x[0]] = set()
-        if x[1] not in party:
-            party[x[1]] = set()
-        # Add person 2 to person 1's set
-        party[x[0]].add(x[1])
-        party[x[1]].add(x[0])
-    return party
+    print("\nDegrees:")
+    print(degrees)
 
-def mutual_connections(party_data, person1, person2):
-    mutual = party_data[person1] & party_data[person2]
-    return mutual
+    print("\nCommunities:")
+    print(communities)
 
-def calculate_degrees(party_data):
-    degrees = {}
-    for person in party_data:
-        degrees[person] = len(party_data[person])
-
-    return degrees
+    print("\nCommunity map:")
+    print(community_map)
 
 
 if __name__ == "__main__":
