@@ -30,7 +30,7 @@ def main():
         G,
         degrees,
         community_map,
-        "web/graph.json"
+        "docs/graph.json"
     )
 
     print("Created web/graph.json")

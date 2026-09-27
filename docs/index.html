@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Party Connections</title>
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+</head>
+
+<body>
+
+    <header>
+        <h1>Party Connections</h1>
+        <p>Explore how everyone at the party is connected.</p>
+    </header>
+
+    <main class="layout">
+
+        <section class="graph-container">
+            <svg id="network"></svg>
+        </section>
+
+        <aside id="details-panel">
+
+            <!-- Relationship filters -->
+            <section class="filter-section">
+
+                <h2>Connections</h2>
+
+                <div id="relationship-filters"></div>
+
+                <button id="show-all-button">
+                    Show All
+                </button>
+
+            </section>
+
+            <hr>
+
+            <!-- Selected person information -->
+            <section>
+
+                <h2>Person Details</h2>
+
+                <p class="hint">
+                    Select someone from the graph.
+                </p>
+
+                <div id="person-details"></div>
+
+            </section>
+
+        </aside>
+
+    </main>
+
+    <!-- D3 -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+    <!-- Our visualization -->
+    <script src="app.js"></script>
+
+</body>
+
+</html>

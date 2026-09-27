@@ -1,0 +1,230 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    background-color: #111827;
+    color: white;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+header {
+    padding: 24px 32px;
+}
+
+
+header h1 {
+    margin: 0 0 6px;
+}
+
+
+header p {
+    margin: 0;
+
+    color: #9ca3af;
+}
+
+
+/* ==================================================
+   PAGE LAYOUT
+================================================== */
+
+.layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        300px;
+
+    gap: 20px;
+
+    padding: 0 32px 32px;
+}
+
+
+/* ==================================================
+   GRAPH
+================================================== */
+
+.graph-container {
+    overflow: hidden;
+
+    background-color: #1f2937;
+
+    border-radius: 12px;
+}
+
+
+#network {
+    display: block;
+
+    width: 100%;
+    height: 750px;
+}
+
+
+/* ==================================================
+   EDGES
+================================================== */
+
+.link {
+    stroke: #6b7280;
+
+    stroke-width: 2px;
+
+    stroke-opacity: 0.6;
+}
+
+
+/* ==================================================
+   NODES
+================================================== */
+
+.node {
+    stroke: white;
+
+    stroke-width: 2px;
+
+    cursor: pointer;
+
+    transition: opacity 0.2s;
+}
+
+
+/* ==================================================
+   NODE LABELS
+================================================== */
+
+.node-label {
+    fill: white;
+
+    font-size: 12px;
+
+    pointer-events: none;
+
+    text-anchor: middle;
+}
+
+
+/* ==================================================
+   SIDEBAR
+================================================== */
+
+#details-panel {
+    background-color: #1f2937;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    height: fit-content;
+}
+
+
+#details-panel h2 {
+    margin-top: 0;
+}
+
+
+.hint {
+    color: #9ca3af;
+}
+
+
+hr {
+    border: none;
+
+    border-top: 1px solid #374151;
+
+    margin: 20px 0;
+}
+
+
+/* ==================================================
+   RELATIONSHIP FILTERS
+================================================== */
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+
+.filter-option {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+
+    color: #d1d5db;
+
+    cursor: pointer;
+}
+
+
+.filter-option input {
+    cursor: pointer;
+}
+
+
+#show-all-button {
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 9px 12px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background-color: #374151;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+#show-all-button:hover {
+    background-color: #4b5563;
+}
+
+
+/* ==================================================
+   CONNECTION DETAILS
+================================================== */
+
+.connection {
+    padding: 10px 0;
+
+    border-bottom: 1px solid #374151;
+}
+
+
+.connection-name {
+    font-weight: 600;
+}
+
+
+.connection-reason {
+    margin-top: 3px;
+
+    color: #9ca3af;
+
+    font-size: 14px;
+}
