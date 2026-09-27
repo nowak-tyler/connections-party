@@ -21,21 +21,64 @@
 
     <header>
         <h1>Party Connections</h1>
-        <p>Explore how everyone at the party is connected.</p>
+        <p>
+            Explore how everyone at the party is connected.
+        </p>
     </header>
+
 
     <main class="layout">
 
+        <!-- ==============================
+             GRAPH
+        =============================== -->
+
         <section class="graph-container">
+
             <svg id="network"></svg>
+
         </section>
+
+
+        <!-- ==============================
+             SIDEBAR
+        =============================== -->
 
         <aside id="details-panel">
 
-            <!-- Relationship filters -->
+
+            <!-- ==========================
+                 COMMUNITY LEGEND
+            =========================== -->
+
+            <section class="community-section">
+
+                <h2>
+                    Detected Communities
+                </h2>
+
+                <div id="community-legend"></div>
+
+                <p class="legend-description">
+                    Colors represent communities detected
+                    from the network's connection structure.
+                </p>
+
+            </section>
+
+
+            <hr>
+
+
+            <!-- ==========================
+                 RELATIONSHIP FILTERS
+            =========================== -->
+
             <section class="filter-section">
 
-                <h2>Connections</h2>
+                <h2>
+                    Connections
+                </h2>
 
                 <div id="relationship-filters"></div>
 
@@ -45,12 +88,19 @@
 
             </section>
 
+
             <hr>
 
-            <!-- Selected person information -->
+
+            <!-- ==========================
+                 PERSON DETAILS
+            =========================== -->
+
             <section>
 
-                <h2>Person Details</h2>
+                <h2>
+                    Person Details
+                </h2>
 
                 <p class="hint">
                     Select someone from the graph.
@@ -60,14 +110,16 @@
 
             </section>
 
+
         </aside>
 
     </main>
 
+
     <!-- D3 -->
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 
-    <!-- Our visualization -->
+    <!-- Application -->
     <script src="app.js"></script>
 
 </body>

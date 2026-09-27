@@ -1,7 +1,12 @@
+// ==================================================
+// BASIC SVG SETUP
+// ==================================================
+
 const svg = d3.select("#network");
 
 const width = 1200;
 const height = 750;
+
 
 svg.attr(
     "viewBox",
@@ -9,11 +14,12 @@ svg.attr(
 );
 
 
-// ==================================================
-// MAIN GRAPH CONTAINER
-// ==================================================
+// Everything in the graph lives inside this group.
+//
+// This allows us to zoom/pan the entire visualization.
 
-const graphGroup = svg.append("g");
+const graphGroup =
+    svg.append("g");
 
 
 // ==================================================
@@ -22,39 +28,153 @@ const graphGroup = svg.append("g");
 
 d3.json("graph.json").then(function(data) {
 
-    const color = d3.scaleOrdinal(
-        d3.schemeCategory10
-    );
 
-    const NO_REASON = "No reason provided";
+    // ==================================================
+    // COLORS
+    // ==================================================
+
+    const color =
+        d3.scaleOrdinal(
+            d3.schemeCategory10
+        );
+
+
+    const NO_REASON =
+        "No reason provided";
+
+
+    // ==================================================
+    // COMMUNITY LEGEND
+    // ==================================================
+
+    const communities =
+        d3.group(
+            data.nodes,
+            function(d) {
+
+                return d.community;
+
+            }
+        );
+
+
+    const communityLegend =
+        d3.select(
+            "#community-legend"
+        );
+
+
+    communities.forEach(
+        function(
+            members,
+            communityId
+        ) {
+
+            const item =
+                communityLegend
+                    .append("div")
+                    .attr(
+                        "class",
+                        "community-item"
+                    );
+
+
+            // Colored dot
+
+            item
+                .append("div")
+                .attr(
+                    "class",
+                    "community-color"
+                )
+                .style(
+                    "background-color",
+                    color(communityId)
+                );
+
+
+            const info =
+                item
+                    .append("div")
+                    .attr(
+                        "class",
+                        "community-info"
+                    );
+
+
+            // Cluster name
+
+            info
+                .append("div")
+                .attr(
+                    "class",
+                    "community-name"
+                )
+                .text(
+                    `Cluster ${communityId + 1}`
+                );
+
+
+            // Cluster members
+
+            info
+                .append("div")
+                .attr(
+                    "class",
+                    "community-members"
+                )
+                .text(
+                    members
+                        .map(
+                            function(d) {
+
+                                return d.id;
+
+                            }
+                        )
+                        .join(", ")
+                );
+
+        }
+    );
 
 
     // ==================================================
     // RELATIONSHIP TYPES
     // ==================================================
 
-    const relationshipTypes = new Set();
-
-    data.links.forEach(function(link) {
-
-        const reason =
-            link.reason === null
-                ? NO_REASON
-                : link.reason;
-
-        relationshipTypes.add(reason);
-
-    });
+    const relationshipTypes =
+        new Set();
 
 
-    // All filters enabled initially
-    const activeFilters = new Set(
-        relationshipTypes
+    data.links.forEach(
+        function(link) {
+
+            const reason =
+                link.reason === null
+                    ? NO_REASON
+                    : link.reason;
+
+
+            relationshipTypes.add(
+                reason
+            );
+
+        }
     );
 
 
+    // Every relationship type starts enabled.
+
+    const activeFilters =
+        new Set(
+            relationshipTypes
+        );
+
+
     // ==================================================
-    // HELPER: GET LINK REASON
+    // HELPER:
+    // GET DISPLAYABLE LINK REASON
     // ==================================================
 
     function getLinkReason(link) {
@@ -71,139 +191,169 @@ d3.json("graph.json").then(function(data) {
     // ==================================================
 
     const filterContainer =
-        d3.select("#relationship-filters");
+        d3.select(
+            "#relationship-filters"
+        );
 
 
-    relationshipTypes.forEach(function(type) {
+    relationshipTypes.forEach(
+        function(type) {
 
-        const option =
-            filterContainer
-                .append("label")
+            const option =
+                filterContainer
+                    .append("label")
+                    .attr(
+                        "class",
+                        "filter-option"
+                    );
+
+
+            option
+                .append("input")
                 .attr(
-                    "class",
-                    "filter-option"
+                    "type",
+                    "checkbox"
+                )
+                .property(
+                    "checked",
+                    true
+                )
+                .attr(
+                    "value",
+                    type
+                )
+                .on(
+                    "change",
+                    function() {
+
+                        if (this.checked) {
+
+                            activeFilters.add(
+                                type
+                            );
+
+                        }
+                        else {
+
+                            activeFilters.delete(
+                                type
+                            );
+
+                        }
+
+
+                        updateFilters();
+
+                    }
                 );
 
 
-        option
-            .append("input")
-            .attr(
-                "type",
-                "checkbox"
-            )
-            .property(
-                "checked",
-                true
-            )
-            .attr(
-                "value",
-                type
-            )
-            .on(
-                "change",
-                function() {
+            option
+                .append("span")
+                .text(type);
 
-                    if (this.checked) {
-
-                        activeFilters.add(type);
-
-                    }
-                    else {
-
-                        activeFilters.delete(type);
-
-                    }
-
-
-                    updateFilters();
-
-                }
-            );
-
-
-        option
-            .append("span")
-            .text(type);
-
-    });
+        }
+    );
 
 
     // ==================================================
     // EDGES
     // ==================================================
 
-    const links = graphGroup
-        .append("g")
-        .selectAll("line")
-        .data(data.links)
-        .join("line")
-        .attr(
-            "class",
-            "link"
-        );
+    const links =
+        graphGroup
+            .append("g")
+            .selectAll("line")
+            .data(
+                data.links
+            )
+            .join("line")
+            .attr(
+                "class",
+                "link"
+            );
 
 
     // ==================================================
     // NODES
     // ==================================================
 
-    const nodes = graphGroup
-        .append("g")
-        .selectAll("circle")
-        .data(data.nodes)
-        .join("circle")
-        .attr(
-            "class",
-            "node"
-        )
-        .attr(
-            "r",
-            function(d) {
+    const nodes =
+        graphGroup
+            .append("g")
+            .selectAll("circle")
+            .data(
+                data.nodes
+            )
+            .join("circle")
+            .attr(
+                "class",
+                "node"
+            )
 
-                return 8 + d.degree * 3;
+            // More connections =
+            // larger node
 
-            }
-        )
-        .attr(
-            "fill",
-            function(d) {
+            .attr(
+                "r",
+                function(d) {
 
-                return color(
-                    d.community
-                );
+                    return (
+                        8 +
+                        d.degree * 3
+                    );
 
-            }
-        );
+                }
+            )
+
+            // Community =
+            // node color
+
+            .attr(
+                "fill",
+                function(d) {
+
+                    return color(
+                        d.community
+                    );
+
+                }
+            );
 
 
     // ==================================================
     // NODE LABELS
     // ==================================================
 
-    const labels = graphGroup
-        .append("g")
-        .selectAll("text")
-        .data(data.nodes)
-        .join("text")
-        .attr(
-            "class",
-            "node-label"
-        )
-        .text(
-            function(d) {
+    const labels =
+        graphGroup
+            .append("g")
+            .selectAll("text")
+            .data(
+                data.nodes
+            )
+            .join("text")
+            .attr(
+                "class",
+                "node-label"
+            )
+            .text(
+                function(d) {
 
-                return d.id;
+                    return d.id;
 
-            }
-        );
+                }
+            );
 
 
     // ==================================================
-    // FORCE SIMULATION
+    // LINK FORCE
     // ==================================================
 
     const linkForce =
-        d3.forceLink(data.links)
+        d3.forceLink(
+            data.links
+        )
             .id(
                 function(d) {
 
@@ -214,30 +364,49 @@ d3.json("graph.json").then(function(data) {
             .distance(120);
 
 
+    // ==================================================
+    // FORCE SIMULATION
+    // ==================================================
+
     const simulation =
-        d3.forceSimulation(data.nodes)
+        d3.forceSimulation(
+            data.nodes
+        )
+
+            // Connected nodes
+            // pull toward each other
 
             .force(
                 "link",
                 linkForce
             )
 
+            // Nodes repel one another
+
             .force(
                 "charge",
+
                 d3.forceManyBody()
                     .strength(-400)
             )
 
+            // Pull entire network
+            // toward center
+
             .force(
                 "center",
+
                 d3.forceCenter(
                     width / 2,
                     height / 2
                 )
             )
 
+            // Prevent overlapping nodes
+
             .force(
                 "collision",
+
                 d3.forceCollide()
                     .radius(
                         function(d) {
@@ -260,55 +429,84 @@ d3.json("graph.json").then(function(data) {
         "tick",
         function() {
 
+
+            // Move edges
+
             links
+
                 .attr(
                     "x1",
                     function(d) {
+
                         return d.source.x;
+
                     }
                 )
+
                 .attr(
                     "y1",
                     function(d) {
+
                         return d.source.y;
+
                     }
                 )
+
                 .attr(
                     "x2",
                     function(d) {
+
                         return d.target.x;
+
                     }
                 )
+
                 .attr(
                     "y2",
                     function(d) {
+
                         return d.target.y;
+
                     }
                 );
 
 
+            // Move nodes
+
             nodes
+
                 .attr(
                     "cx",
                     function(d) {
+
                         return d.x;
+
                     }
                 )
+
                 .attr(
                     "cy",
                     function(d) {
+
                         return d.y;
+
                     }
                 );
 
 
+            // Move labels
+
             labels
+
                 .attr(
                     "x",
                     function(d) {
+
                         return d.x;
+
                     }
                 )
+
                 .attr(
                     "y",
                     function(d) {
@@ -338,15 +536,23 @@ d3.json("graph.json").then(function(data) {
 
             .on(
                 "start",
-                function(event, d) {
+                function(
+                    event,
+                    d
+                ) {
 
-                    if (!event.active) {
+                    if (
+                        !event.active
+                    ) {
 
                         simulation
-                            .alphaTarget(0.3)
+                            .alphaTarget(
+                                0.3
+                            )
                             .restart();
 
                     }
+
 
                     d.fx = d.x;
                     d.fy = d.y;
@@ -354,26 +560,42 @@ d3.json("graph.json").then(function(data) {
                 }
             )
 
+
             .on(
                 "drag",
-                function(event, d) {
+                function(
+                    event,
+                    d
+                ) {
 
-                    d.fx = event.x;
-                    d.fy = event.y;
+                    d.fx =
+                        event.x;
+
+                    d.fy =
+                        event.y;
 
                 }
             )
 
+
             .on(
                 "end",
-                function(event, d) {
+                function(
+                    event,
+                    d
+                ) {
 
-                    if (!event.active) {
+                    if (
+                        !event.active
+                    ) {
 
                         simulation
-                            .alphaTarget(0);
+                            .alphaTarget(
+                                0
+                            );
 
                     }
+
 
                     d.fx = null;
                     d.fy = null;
@@ -385,18 +607,38 @@ d3.json("graph.json").then(function(data) {
 
 
     // ==================================================
+    // CHECK IF LINK IS ACTIVE
+    // ==================================================
+
+    function isLinkActive(link) {
+
+        return activeFilters.has(
+            getLinkReason(
+                link
+            )
+        );
+
+    }
+
+
+    // ==================================================
     // CLICK NODE
     // ==================================================
 
     nodes.on(
         "click",
-        function(event, selectedNode) {
+        function(
+            event,
+            selectedNode
+        ) {
 
             event.stopPropagation();
+
 
             highlightConnections(
                 selectedNode
             );
+
 
             showDetails(
                 selectedNode
@@ -404,19 +646,6 @@ d3.json("graph.json").then(function(data) {
 
         }
     );
-
-
-    // ==================================================
-    // CHECK IF EDGE IS CURRENTLY ENABLED
-    // ==================================================
-
-    function isLinkActive(link) {
-
-        return activeFilters.has(
-            getLinkReason(link)
-        );
-
-    }
 
 
     // ==================================================
@@ -433,57 +662,76 @@ d3.json("graph.json").then(function(data) {
             ]);
 
 
-        data.links.forEach(function(link) {
+        data.links.forEach(
+            function(link) {
 
-            // Ignore filtered-out relationships
-            if (!isLinkActive(link)) {
-                return;
+
+                // Ignore relationships
+                // currently filtered out
+
+                if (
+                    !isLinkActive(
+                        link
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                if (
+                    link.source.id ===
+                    selectedNode.id
+                ) {
+
+                    connectedNodes.add(
+                        link.target.id
+                    );
+
+                }
+
+
+                if (
+                    link.target.id ===
+                    selectedNode.id
+                ) {
+
+                    connectedNodes.add(
+                        link.source.id
+                    );
+
+                }
+
             }
+        );
 
 
-            if (
-                link.source.id ===
-                selectedNode.id
-            ) {
-
-                connectedNodes.add(
-                    link.target.id
-                );
-
-            }
-
-
-            if (
-                link.target.id ===
-                selectedNode.id
-            ) {
-
-                connectedNodes.add(
-                    link.source.id
-                );
-
-            }
-
-        });
-
+        // Fade unrelated nodes
 
         nodes.attr(
             "opacity",
             function(d) {
 
-                return connectedNodes.has(d.id)
+                return connectedNodes.has(
+                    d.id
+                )
                     ? 1
                     : 0.15;
 
             }
         );
 
+
+        // Fade unrelated labels
 
         labels.attr(
             "opacity",
             function(d) {
 
-                return connectedNodes.has(d.id)
+                return connectedNodes.has(
+                    d.id
+                )
                     ? 1
                     : 0.15;
 
@@ -491,46 +739,68 @@ d3.json("graph.json").then(function(data) {
         );
 
 
+        // Highlight direct edges
+
         links
+
             .attr(
                 "stroke-opacity",
                 function(d) {
 
-                    if (!isLinkActive(d)) {
+
+                    if (
+                        !isLinkActive(
+                            d
+                        )
+                    ) {
+
                         return 0;
+
                     }
+
 
                     if (
                         d.source.id ===
-                            selectedNode.id ||
-
+                            selectedNode.id
+                        ||
                         d.target.id ===
                             selectedNode.id
                     ) {
+
                         return 1;
+
                     }
+
 
                     return 0.08;
 
                 }
             )
 
+
             .attr(
                 "stroke-width",
                 function(d) {
 
+
                     if (
-                        isLinkActive(d) &&
+                        isLinkActive(
+                            d
+                        )
+                        &&
                         (
                             d.source.id ===
-                                selectedNode.id ||
-
+                                selectedNode.id
+                            ||
                             d.target.id ===
                                 selectedNode.id
                         )
                     ) {
+
                         return 4;
+
                     }
+
 
                     return 2;
 
@@ -541,10 +811,12 @@ d3.json("graph.json").then(function(data) {
 
 
     // ==================================================
-    // PERSON DETAILS PANEL
+    // PERSON DETAILS
     // ==================================================
 
-    function showDetails(person) {
+    function showDetails(
+        person
+    ) {
 
         const panel =
             d3.select(
@@ -557,20 +829,36 @@ d3.json("graph.json").then(function(data) {
 
         panel
             .append("h3")
-            .text(person.id);
+            .text(
+                person.id
+            );
 
+
+        // Only count currently
+        // visible connections.
 
         const connections =
             data.links.filter(
                 function(link) {
 
-                    if (!isLinkActive(link)) {
+
+                    if (
+                        !isLinkActive(
+                            link
+                        )
+                    ) {
+
                         return false;
+
                     }
 
+
                     return (
-                        link.source.id === person.id ||
-                        link.target.id === person.id
+                        link.source.id ===
+                            person.id
+                        ||
+                        link.target.id ===
+                            person.id
                     );
 
                 }
@@ -622,7 +910,9 @@ d3.json("graph.json").then(function(data) {
                         "class",
                         "connection-name"
                     )
-                    .text(otherPerson);
+                    .text(
+                        otherPerson
+                    );
 
 
                 connection
@@ -632,7 +922,9 @@ d3.json("graph.json").then(function(data) {
                         "connection-reason"
                     )
                     .text(
-                        getLinkReason(link)
+                        getLinkReason(
+                            link
+                        )
                     );
 
             }
@@ -642,31 +934,36 @@ d3.json("graph.json").then(function(data) {
 
 
     // ==================================================
-    // UPDATE FILTERS + RECLUSTER GRAPH
+    // UPDATE FILTERS + RECLUSTER
     // ==================================================
 
     function updateFilters() {
 
-        // Get only currently enabled edges
+
+        // Get only edges whose
+        // relationship type is enabled.
+
         const activeLinks =
             data.links.filter(
                 function(link) {
 
-                    return isLinkActive(link);
+                    return isLinkActive(
+                        link
+                    );
 
                 }
             );
 
 
-        // ----------------------------------------------
-        // Show/hide edges
-        // ----------------------------------------------
+        // Show/hide edges.
 
         links.attr(
             "display",
             function(link) {
 
-                return isLinkActive(link)
+                return isLinkActive(
+                    link
+                )
                     ? null
                     : "none";
 
@@ -674,28 +971,28 @@ d3.json("graph.json").then(function(data) {
         );
 
 
-        // ----------------------------------------------
-        // Give the force simulation ONLY active edges
-        // ----------------------------------------------
-
-        linkForce.links(activeLinks);
-
-
-        // ----------------------------------------------
-        // Restart physics
+        // IMPORTANT:
         //
-        // alpha(1) gives the graph energy again so it
-        // recalculates positions.
-        // ----------------------------------------------
+        // Give D3's physics engine
+        // only the active relationships.
+        //
+        // This causes the graph to
+        // physically reorganize.
+
+        linkForce.links(
+            activeLinks
+        );
+
+
+        // Give the simulation
+        // energy again.
 
         simulation
             .alpha(1)
             .restart();
 
 
-        // ----------------------------------------------
-        // Reset highlighting
-        // ----------------------------------------------
+        // Reset node visibility.
 
         nodes.attr(
             "opacity",
@@ -710,11 +1007,14 @@ d3.json("graph.json").then(function(data) {
 
 
         links
+
             .attr(
                 "stroke-opacity",
                 function(link) {
 
-                    return isLinkActive(link)
+                    return isLinkActive(
+                        link
+                    )
                         ? 0.6
                         : 0;
 
@@ -727,8 +1027,10 @@ d3.json("graph.json").then(function(data) {
             );
 
 
-        // Clear selected person's details because their
-        // visible relationships may have changed.
+        // Clear selected person
+        // because visible relationships
+        // may have changed.
+
         d3.select(
             "#person-details"
         )
@@ -738,7 +1040,7 @@ d3.json("graph.json").then(function(data) {
 
 
     // ==================================================
-    // SHOW ALL
+    // SHOW ALL RELATIONSHIPS
     // ==================================================
 
     d3.select(
@@ -748,15 +1050,15 @@ d3.json("graph.json").then(function(data) {
             "click",
             function(event) {
 
-                // Prevent graph background handler from
-                // treating this as a reset click.
                 event.stopPropagation();
 
 
                 relationshipTypes.forEach(
                     function(type) {
 
-                        activeFilters.add(type);
+                        activeFilters.add(
+                            type
+                        );
 
                     }
                 );
@@ -778,12 +1080,13 @@ d3.json("graph.json").then(function(data) {
 
 
     // ==================================================
-    // RESET SELECTION
+    // RESET SELECTED PERSON
     // ==================================================
 
     svg.on(
         "click",
         function() {
+
 
             nodes.attr(
                 "opacity",
@@ -798,11 +1101,14 @@ d3.json("graph.json").then(function(data) {
 
 
             links
+
                 .attr(
                     "stroke-opacity",
                     function(link) {
 
-                        return isLinkActive(link)
+                        return isLinkActive(
+                            link
+                        )
                             ? 0.6
                             : 0;
 
@@ -849,6 +1155,9 @@ d3.json("graph.json").then(function(data) {
             );
 
 
-    svg.call(zoom);
+    svg.call(
+        zoom
+    );
+
 
 });
