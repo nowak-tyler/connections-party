@@ -14,10 +14,6 @@ svg.attr(
 );
 
 
-// Everything in the graph lives inside this group.
-//
-// This allows us to zoom/pan the entire visualization.
-
 const graphGroup =
     svg.append("g");
 
@@ -79,8 +75,6 @@ d3.json("graph.json").then(function(data) {
                     );
 
 
-            // Colored dot
-
             item
                 .append("div")
                 .attr(
@@ -102,8 +96,6 @@ d3.json("graph.json").then(function(data) {
                     );
 
 
-            // Cluster name
-
             info
                 .append("div")
                 .attr(
@@ -114,8 +106,6 @@ d3.json("graph.json").then(function(data) {
                     `Cluster ${communityId + 1}`
                 );
 
-
-            // Cluster members
 
             info
                 .append("div")
@@ -164,8 +154,6 @@ d3.json("graph.json").then(function(data) {
     );
 
 
-    // Every relationship type starts enabled.
-
     const activeFilters =
         new Set(
             relationshipTypes
@@ -174,7 +162,7 @@ d3.json("graph.json").then(function(data) {
 
     // ==================================================
     // HELPER:
-    // GET DISPLAYABLE LINK REASON
+    // GET LINK REASON
     // ==================================================
 
     function getLinkReason(link) {
@@ -290,10 +278,6 @@ d3.json("graph.json").then(function(data) {
                 "class",
                 "node"
             )
-
-            // More connections =
-            // larger node
-
             .attr(
                 "r",
                 function(d) {
@@ -305,10 +289,6 @@ d3.json("graph.json").then(function(data) {
 
                 }
             )
-
-            // Community =
-            // node color
-
             .attr(
                 "fill",
                 function(d) {
@@ -372,27 +352,16 @@ d3.json("graph.json").then(function(data) {
         d3.forceSimulation(
             data.nodes
         )
-
-            // Connected nodes
-            // pull toward each other
-
             .force(
                 "link",
                 linkForce
             )
-
-            // Nodes repel one another
-
             .force(
                 "charge",
 
                 d3.forceManyBody()
                     .strength(-400)
             )
-
-            // Pull entire network
-            // toward center
-
             .force(
                 "center",
 
@@ -401,9 +370,6 @@ d3.json("graph.json").then(function(data) {
                     height / 2
                 )
             )
-
-            // Prevent overlapping nodes
-
             .force(
                 "collision",
 
@@ -430,10 +396,7 @@ d3.json("graph.json").then(function(data) {
         function() {
 
 
-            // Move edges
-
             links
-
                 .attr(
                     "x1",
                     function(d) {
@@ -442,7 +405,6 @@ d3.json("graph.json").then(function(data) {
 
                     }
                 )
-
                 .attr(
                     "y1",
                     function(d) {
@@ -451,7 +413,6 @@ d3.json("graph.json").then(function(data) {
 
                     }
                 )
-
                 .attr(
                     "x2",
                     function(d) {
@@ -460,7 +421,6 @@ d3.json("graph.json").then(function(data) {
 
                     }
                 )
-
                 .attr(
                     "y2",
                     function(d) {
@@ -471,10 +431,7 @@ d3.json("graph.json").then(function(data) {
                 );
 
 
-            // Move nodes
-
             nodes
-
                 .attr(
                     "cx",
                     function(d) {
@@ -483,7 +440,6 @@ d3.json("graph.json").then(function(data) {
 
                     }
                 )
-
                 .attr(
                     "cy",
                     function(d) {
@@ -494,10 +450,7 @@ d3.json("graph.json").then(function(data) {
                 );
 
 
-            // Move labels
-
             labels
-
                 .attr(
                     "x",
                     function(d) {
@@ -506,7 +459,6 @@ d3.json("graph.json").then(function(data) {
 
                     }
                 )
-
                 .attr(
                     "y",
                     function(d) {
@@ -635,6 +587,28 @@ d3.json("graph.json").then(function(data) {
             event.stopPropagation();
 
 
+            // Move person details to top.
+
+            d3.select(
+                "#details-panel"
+            )
+                .classed(
+                    "person-selected",
+                    true
+                );
+
+
+            // Hide the default hint.
+
+            d3.select(
+                "#person-hint"
+            )
+                .style(
+                    "display",
+                    "none"
+                );
+
+
             highlightConnections(
                 selectedNode
             );
@@ -665,9 +639,6 @@ d3.json("graph.json").then(function(data) {
         data.links.forEach(
             function(link) {
 
-
-                // Ignore relationships
-                // currently filtered out
 
                 if (
                     !isLinkActive(
@@ -707,8 +678,6 @@ d3.json("graph.json").then(function(data) {
         );
 
 
-        // Fade unrelated nodes
-
         nodes.attr(
             "opacity",
             function(d) {
@@ -722,8 +691,6 @@ d3.json("graph.json").then(function(data) {
             }
         );
 
-
-        // Fade unrelated labels
 
         labels.attr(
             "opacity",
@@ -739,10 +706,7 @@ d3.json("graph.json").then(function(data) {
         );
 
 
-        // Highlight direct edges
-
         links
-
             .attr(
                 "stroke-opacity",
                 function(d) {
@@ -776,8 +740,6 @@ d3.json("graph.json").then(function(data) {
 
                 }
             )
-
-
             .attr(
                 "stroke-width",
                 function(d) {
@@ -833,9 +795,6 @@ d3.json("graph.json").then(function(data) {
                 person.id
             );
 
-
-        // Only count currently
-        // visible connections.
 
         const connections =
             data.links.filter(
@@ -940,9 +899,6 @@ d3.json("graph.json").then(function(data) {
     function updateFilters() {
 
 
-        // Get only edges whose
-        // relationship type is enabled.
-
         const activeLinks =
             data.links.filter(
                 function(link) {
@@ -954,8 +910,6 @@ d3.json("graph.json").then(function(data) {
                 }
             );
 
-
-        // Show/hide edges.
 
         links.attr(
             "display",
@@ -971,28 +925,15 @@ d3.json("graph.json").then(function(data) {
         );
 
 
-        // IMPORTANT:
-        //
-        // Give D3's physics engine
-        // only the active relationships.
-        //
-        // This causes the graph to
-        // physically reorganize.
-
         linkForce.links(
             activeLinks
         );
 
 
-        // Give the simulation
-        // energy again.
-
         simulation
             .alpha(1)
             .restart();
 
-
-        // Reset node visibility.
 
         nodes.attr(
             "opacity",
@@ -1007,7 +948,6 @@ d3.json("graph.json").then(function(data) {
 
 
         links
-
             .attr(
                 "stroke-opacity",
                 function(link) {
@@ -1020,21 +960,48 @@ d3.json("graph.json").then(function(data) {
 
                 }
             )
-
             .attr(
                 "stroke-width",
                 2
             );
 
 
-        // Clear selected person
-        // because visible relationships
-        // may have changed.
+        // Clear person selection.
+
+        resetPersonPanel();
+
+    }
+
+
+    // ==================================================
+    // RESET PERSON PANEL
+    // ==================================================
+
+    function resetPersonPanel() {
+
 
         d3.select(
             "#person-details"
         )
             .html("");
+
+
+        d3.select(
+            "#person-hint"
+        )
+            .style(
+                "display",
+                null
+            );
+
+
+        d3.select(
+            "#details-panel"
+        )
+            .classed(
+                "person-selected",
+                false
+            );
 
     }
 
@@ -1101,7 +1068,6 @@ d3.json("graph.json").then(function(data) {
 
 
             links
-
                 .attr(
                     "stroke-opacity",
                     function(link) {
@@ -1114,17 +1080,13 @@ d3.json("graph.json").then(function(data) {
 
                     }
                 )
-
                 .attr(
                     "stroke-width",
                     2
                 );
 
 
-            d3.select(
-                "#person-details"
-            )
-                .html("");
+            resetPersonPanel();
 
         }
     );

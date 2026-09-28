@@ -21,6 +21,7 @@
 
     <header>
         <h1>Party Connections</h1>
+
         <p>
             Explore how everyone at the party is connected.
         </p>
@@ -29,9 +30,9 @@
 
     <main class="layout">
 
-        <!-- ==============================
+        <!-- ==========================================
              GRAPH
-        =============================== -->
+        =========================================== -->
 
         <section class="graph-container">
 
@@ -40,18 +41,43 @@
         </section>
 
 
-        <!-- ==============================
+        <!-- ==========================================
              SIDEBAR
-        =============================== -->
+        =========================================== -->
 
         <aside id="details-panel">
 
 
-            <!-- ==========================
-                 COMMUNITY LEGEND
-            =========================== -->
+            <!-- ======================================
+                 PERSON DETAILS
+            ======================================= -->
 
-            <section class="community-section">
+            <section id="person-section">
+
+                <h2>
+                    Person Details
+                </h2>
+
+                <p
+                    id="person-hint"
+                    class="hint"
+                >
+                    Select someone from the graph.
+                </p>
+
+                <div id="person-details"></div>
+
+            </section>
+
+
+            <!-- ======================================
+                 COMMUNITY LEGEND
+            ======================================= -->
+
+            <section
+                id="community-section"
+                class="community-section"
+            >
 
                 <h2>
                     Detected Communities
@@ -67,14 +93,14 @@
             </section>
 
 
-            <hr>
-
-
-            <!-- ==========================
+            <!-- ======================================
                  RELATIONSHIP FILTERS
-            =========================== -->
+            ======================================= -->
 
-            <section class="filter-section">
+            <section
+                id="filter-section"
+                class="filter-section"
+            >
 
                 <h2>
                     Connections
@@ -87,29 +113,6 @@
                 </button>
 
             </section>
-
-
-            <hr>
-
-
-            <!-- ==========================
-                 PERSON DETAILS
-            =========================== -->
-
-            <section>
-
-                <h2>
-                    Person Details
-                </h2>
-
-                <p class="hint">
-                    Select someone from the graph.
-                </p>
-
-                <div id="person-details"></div>
-
-            </section>
-
 
         </aside>
 

@@ -63,7 +63,7 @@ header p {
 
 
 /* ==================================================
-   GRAPH CONTAINER
+   GRAPH
 ================================================== */
 
 .graph-container {
@@ -137,6 +137,10 @@ header p {
 ================================================== */
 
 #details-panel {
+    display: flex;
+
+    flex-direction: column;
+
     background-color: #1f2937;
 
     border-radius: 12px;
@@ -156,15 +160,60 @@ header p {
 }
 
 
-hr {
-    border: none;
+/* ==================================================
+   DEFAULT SIDEBAR ORDER
+================================================== */
 
+#community-section {
+    order: 1;
+}
+
+
+#filter-section {
+    order: 2;
+}
+
+
+#person-section {
+    order: 3;
+}
+
+
+/* ==================================================
+   SELECTED PERSON SIDEBAR ORDER
+================================================== */
+
+#details-panel.person-selected #person-section {
+    order: 1;
+}
+
+
+#details-panel.person-selected #community-section {
+    order: 2;
+}
+
+
+#details-panel.person-selected #filter-section {
+    order: 3;
+}
+
+
+/* ==================================================
+   SIDEBAR SECTION SEPARATORS
+================================================== */
+
+#details-panel section {
+    padding-bottom: 4px;
+}
+
+
+#details-panel section + section {
     border-top:
         1px solid #374151;
 
-    margin:
-        20px
-        0;
+    margin-top: 20px;
+
+    padding-top: 20px;
 }
 
 
@@ -173,7 +222,7 @@ hr {
 ================================================== */
 
 .community-section {
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 
@@ -240,7 +289,7 @@ hr {
 ================================================== */
 
 .filter-section {
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 
