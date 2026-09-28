@@ -1,176 +1,1041 @@
 {
     "nodes": [
         {
-            "id": "Tyler",
-            "degree": 4,
-            "community": 0
+            "id": "Elena",
+            "degree": 13,
+            "community": 5
         },
         {
-            "id": "Alex",
-            "degree": 4,
-            "community": 0
+            "id": "Evan",
+            "degree": 2,
+            "community": 5
         },
         {
-            "id": "Ben",
-            "degree": 4,
-            "community": 0
-        },
-        {
-            "id": "Emma",
+            "id": "Jane",
             "degree": 5,
+            "community": 6
+        },
+        {
+            "id": "Paige",
+            "degree": 2,
+            "community": 5
+        },
+        {
+            "id": "Leah",
+            "degree": 11,
+            "community": 5
+        },
+        {
+            "id": "Sophie",
+            "degree": 2,
+            "community": 5
+        },
+        {
+            "id": "Caroline",
+            "degree": 1,
+            "community": 5
+        },
+        {
+            "id": "Sami",
+            "degree": 3,
+            "community": 5
+        },
+        {
+            "id": "Tyler",
+            "degree": 7,
+            "community": 5
+        },
+        {
+            "id": "Nathan",
+            "degree": 10,
+            "community": 1
+        },
+        {
+            "id": "Vasudha",
+            "degree": 5,
+            "community": 5
+        },
+        {
+            "id": "Melissa",
+            "degree": 8,
+            "community": 5
+        },
+        {
+            "id": "Tam",
+            "degree": 5,
+            "community": 6
+        },
+        {
+            "id": "Cassie",
+            "degree": 1,
+            "community": 5
+        },
+        {
+            "id": "Siya",
+            "degree": 2,
             "community": 0
         },
         {
-            "id": "Sarah",
-            "degree": 4,
+            "id": "Anvi",
+            "degree": 2,
+            "community": 5
+        },
+        {
+            "id": "Alishba",
+            "degree": 1,
+            "community": 5
+        },
+        {
+            "id": "Ryan",
+            "degree": 10,
+            "community": 3
+        },
+        {
+            "id": "Nilchit",
+            "degree": 3,
+            "community": 1
+        },
+        {
+            "id": "Abby",
+            "degree": 8,
+            "community": 5
+        },
+        {
+            "id": "Benson",
+            "degree": 1,
+            "community": 3
+        },
+        {
+            "id": "Chloe",
+            "degree": 2,
+            "community": 3
+        },
+        {
+            "id": "Hana",
+            "degree": 2,
             "community": 0
         },
         {
-            "id": "Jack",
-            "degree": 4,
-            "community": 2
+            "id": "Vivian",
+            "degree": 3,
+            "community": 0
         },
         {
-            "id": "Chris",
+            "id": "Emily",
+            "degree": 1,
+            "community": 3
+        },
+        {
+            "id": "Livi",
+            "degree": 2,
+            "community": 3
+        },
+        {
+            "id": "Shreya",
+            "degree": 2,
+            "community": 3
+        },
+        {
+            "id": "Kolbe",
+            "degree": 7,
+            "community": 3
+        },
+        {
+            "id": "Ethan",
             "degree": 3,
             "community": 1
         },
         {
-            "id": "Maya",
+            "id": "Emmett",
             "degree": 3,
             "community": 1
         },
         {
-            "id": "Noah",
-            "degree": 3,
+            "id": "Mabel",
+            "degree": 2,
             "community": 1
         },
         {
-            "id": "Luke",
+            "id": "Steven",
+            "degree": 1,
+            "community": 1
+        },
+        {
+            "id": "Sabriya",
+            "degree": 3,
+            "community": 3
+        },
+        {
+            "id": "Tavini",
             "degree": 4,
+            "community": 3
+        },
+        {
+            "id": "Cody",
+            "degree": 3,
             "community": 2
         },
         {
-            "id": "Ava",
-            "degree": 4,
-            "community": 2
+            "id": "Anisa",
+            "degree": 3,
+            "community": 3
         },
         {
-            "id": "Sofia",
+            "id": "Isabella",
+            "degree": 1,
+            "community": 3
+        },
+        {
+            "id": "Nate",
+            "degree": 2,
+            "community": 3
+        },
+        {
+            "id": "Colby",
+            "degree": 2,
+            "community": 3
+        },
+        {
+            "id": "Preyonty",
+            "degree": 2,
+            "community": 3
+        },
+        {
+            "id": "David",
             "degree": 2,
             "community": 2
+        },
+        {
+            "id": "Ryan Z",
+            "degree": 2,
+            "community": 2
+        },
+        {
+            "id": "Ami B",
+            "degree": 8,
+            "community": 2
+        },
+        {
+            "id": "Kate",
+            "degree": 1,
+            "community": 2
+        },
+        {
+            "id": "Marlo",
+            "degree": 5,
+            "community": 2
+        },
+        {
+            "id": "Dylan",
+            "degree": 2,
+            "community": 2
+        },
+        {
+            "id": "Juhi",
+            "degree": 3,
+            "community": 2
+        },
+        {
+            "id": "Verna",
+            "degree": 1,
+            "community": 2
+        },
+        {
+            "id": "Shah",
+            "degree": 1,
+            "community": 2
+        },
+        {
+            "id": "Nhi",
+            "degree": 6,
+            "community": 4
+        },
+        {
+            "id": "Aditi",
+            "degree": 4,
+            "community": 4
+        },
+        {
+            "id": "Aryan",
+            "degree": 4,
+            "community": 4
+        },
+        {
+            "id": "Shivani",
+            "degree": 9,
+            "community": 4
+        },
+        {
+            "id": "Madison",
+            "degree": 1,
+            "community": 4
+        },
+        {
+            "id": "Priya",
+            "degree": 2,
+            "community": 4
+        },
+        {
+            "id": "Rana",
+            "degree": 2,
+            "community": 4
+        },
+        {
+            "id": "Bent",
+            "degree": 5,
+            "community": 4
+        },
+        {
+            "id": "Helen",
+            "degree": 9,
+            "community": 4
+        },
+        {
+            "id": "Katherine",
+            "degree": 4,
+            "community": 4
+        },
+        {
+            "id": "Veronica",
+            "degree": 6,
+            "community": 4
+        },
+        {
+            "id": "Zeel",
+            "degree": 3,
+            "community": 4
+        },
+        {
+            "id": "Mandy",
+            "degree": 2,
+            "community": 4
+        },
+        {
+            "id": "Erin",
+            "degree": 2,
+            "community": 4
+        },
+        {
+            "id": "Annie",
+            "degree": 4,
+            "community": 0
+        },
+        {
+            "id": "Keon",
+            "degree": 1,
+            "community": 5
+        },
+        {
+            "id": "West",
+            "degree": 1,
+            "community": 5
+        },
+        {
+            "id": "Eva",
+            "degree": 3,
+            "community": 0
+        },
+        {
+            "id": "Tiffany",
+            "degree": 2,
+            "community": 0
+        },
+        {
+            "id": "Param",
+            "degree": 3,
+            "community": 6
+        },
+        {
+            "id": "Teja",
+            "degree": 4,
+            "community": 6
+        },
+        {
+            "id": "Abhi",
+            "degree": 5,
+            "community": 6
+        },
+        {
+            "id": "Bor",
+            "degree": 3,
+            "community": 6
+        },
+        {
+            "id": "Hugo",
+            "degree": 1,
+            "community": 5
+        },
+        {
+            "id": "Gonjalo",
+            "degree": 1,
+            "community": 1
+        },
+        {
+            "id": "Kody",
+            "degree": 2,
+            "community": 1
         }
     ],
     "links": [
         {
+            "source": "Elena",
+            "target": "Evan",
+            "reason": null
+        },
+        {
+            "source": "Elena",
+            "target": "Jane",
+            "reason": null
+        },
+        {
+            "source": "Elena",
+            "target": "Paige",
+            "reason": null
+        },
+        {
+            "source": "Elena",
+            "target": "Leah",
+            "reason": "Roommates"
+        },
+        {
+            "source": "Elena",
+            "target": "Sophie",
+            "reason": null
+        },
+        {
+            "source": "Elena",
+            "target": "Caroline",
+            "reason": null
+        },
+        {
+            "source": "Elena",
+            "target": "Sami",
+            "reason": null
+        },
+        {
+            "source": "Elena",
+            "target": "Tyler",
+            "reason": "Melissa"
+        },
+        {
+            "source": "Elena",
+            "target": "Nathan",
+            "reason": "Vasudha"
+        },
+        {
+            "source": "Elena",
+            "target": "Vasudha",
+            "reason": "Umich"
+        },
+        {
+            "source": "Elena",
+            "target": "Melissa",
+            "reason": "Roommates"
+        },
+        {
+            "source": "Elena",
+            "target": "Tam",
+            "reason": null
+        },
+        {
+            "source": "Elena",
+            "target": "Ryan",
+            "reason": "Roommates"
+        },
+        {
+            "source": "Evan",
+            "target": "Jane",
+            "reason": null
+        },
+        {
+            "source": "Jane",
+            "target": "Abhi",
+            "reason": null
+        },
+        {
+            "source": "Jane",
+            "target": "Bor",
+            "reason": null
+        },
+        {
+            "source": "Jane",
+            "target": "Tam",
+            "reason": null
+        },
+        {
+            "source": "Paige",
+            "target": "Sami",
+            "reason": null
+        },
+        {
+            "source": "Leah",
+            "target": "Sami",
+            "reason": null
+        },
+        {
+            "source": "Leah",
+            "target": "Cassie",
+            "reason": "Wife"
+        },
+        {
+            "source": "Leah",
+            "target": "Siya",
+            "reason": null
+        },
+        {
+            "source": "Leah",
+            "target": "Anvi",
+            "reason": null
+        },
+        {
+            "source": "Leah",
+            "target": "Ryan",
+            "reason": "Roommates"
+        },
+        {
+            "source": "Leah",
+            "target": "Tyler",
+            "reason": "Melissa"
+        },
+        {
+            "source": "Leah",
+            "target": "Nathan",
+            "reason": null
+        },
+        {
+            "source": "Leah",
+            "target": "Nilchit",
+            "reason": "Novi"
+        },
+        {
+            "source": "Leah",
+            "target": "Vasudha",
+            "reason": "Umich"
+        },
+        {
+            "source": "Leah",
+            "target": "Abby",
+            "reason": "Umich"
+        },
+        {
+            "source": "Sophie",
+            "target": "Hugo",
+            "reason": null
+        },
+        {
             "source": "Tyler",
-            "target": "Alex",
-            "reason": "College"
+            "target": "Abby",
+            "reason": "Umich"
         },
         {
             "source": "Tyler",
-            "target": "Ben",
-            "reason": "College"
+            "target": "Melissa",
+            "reason": "Umich"
         },
         {
             "source": "Tyler",
-            "target": "Emma",
-            "reason": "Work"
+            "target": "Keon",
+            "reason": "Soccer"
         },
         {
             "source": "Tyler",
-            "target": "Luke",
+            "target": "West",
+            "reason": "Umich"
+        },
+        {
+            "source": "Tyler",
+            "target": "Vasudha",
+            "reason": "Sydney"
+        },
+        {
+            "source": "Nathan",
+            "target": "Ethan",
+            "reason": "Coworker"
+        },
+        {
+            "source": "Nathan",
+            "target": "Emmett",
+            "reason": "Coworker"
+        },
+        {
+            "source": "Nathan",
+            "target": "Abby",
+            "reason": "Umich"
+        },
+        {
+            "source": "Nathan",
+            "target": "Melissa",
+            "reason": "Novi"
+        },
+        {
+            "source": "Nathan",
+            "target": "Annie",
             "reason": null
         },
         {
-            "source": "Alex",
-            "target": "Ben",
+            "source": "Nathan",
+            "target": "Vasudha",
+            "reason": null
+        },
+        {
+            "source": "Nathan",
+            "target": "Gonjalo",
+            "reason": null
+        },
+        {
+            "source": "Nathan",
+            "target": "Kody",
+            "reason": null
+        },
+        {
+            "source": "Vasudha",
+            "target": "Abby",
+            "reason": "Umich"
+        },
+        {
+            "source": "Melissa",
+            "target": "Ryan",
+            "reason": "Roommates"
+        },
+        {
+            "source": "Melissa",
+            "target": "Veronica",
+            "reason": "Coworkers"
+        },
+        {
+            "source": "Melissa",
+            "target": "Helen",
+            "reason": "Coworkers"
+        },
+        {
+            "source": "Melissa",
+            "target": "Annie",
+            "reason": "Umich"
+        },
+        {
+            "source": "Melissa",
+            "target": "Abby",
+            "reason": "Umich"
+        },
+        {
+            "source": "Tam",
+            "target": "Param",
+            "reason": "Girlfriend"
+        },
+        {
+            "source": "Tam",
+            "target": "Teja",
+            "reason": null
+        },
+        {
+            "source": "Tam",
+            "target": "Abhi",
+            "reason": null
+        },
+        {
+            "source": "Siya",
+            "target": "Hana",
+            "reason": "Roommates"
+        },
+        {
+            "source": "Anvi",
+            "target": "Alishba",
+            "reason": null
+        },
+        {
+            "source": "Ryan",
+            "target": "Chloe",
+            "reason": null
+        },
+        {
+            "source": "Ryan",
+            "target": "Ethan",
+            "reason": "Emmett"
+        },
+        {
+            "source": "Ryan",
+            "target": "Sabriya",
+            "reason": "Reese Barrett"
+        },
+        {
+            "source": "Ryan",
+            "target": "Kolbe",
+            "reason": "UVA"
+        },
+        {
+            "source": "Ryan",
+            "target": "Tavini",
+            "reason": "UVA"
+        },
+        {
+            "source": "Ryan",
+            "target": "Nilchit",
+            "reason": "Melissa"
+        },
+        {
+            "source": "Ryan",
+            "target": "Cody",
+            "reason": "Coworkers"
+        },
+        {
+            "source": "Nilchit",
+            "target": "Kody",
+            "reason": null
+        },
+        {
+            "source": "Abby",
+            "target": "Rana",
+            "reason": "Roommates"
+        },
+        {
+            "source": "Abby",
+            "target": "Helen",
+            "reason": "mutuals"
+        },
+        {
+            "source": "Abby",
+            "target": "Eva",
+            "reason": null
+        },
+        {
+            "source": "Benson",
+            "target": "Chloe",
+            "reason": null
+        },
+        {
+            "source": "Hana",
+            "target": "Vivian",
+            "reason": "Coworker"
+        },
+        {
+            "source": "Vivian",
+            "target": "Annie",
+            "reason": null
+        },
+        {
+            "source": "Vivian",
+            "target": "Tiffany",
             "reason": "College"
         },
         {
-            "source": "Alex",
-            "target": "Sarah",
+            "source": "Emily",
+            "target": "Livi",
+            "reason": "bestie"
+        },
+        {
+            "source": "Livi",
+            "target": "Shreya",
+            "reason": "Roommates"
+        },
+        {
+            "source": "Shreya",
+            "target": "Kolbe",
+            "reason": null
+        },
+        {
+            "source": "Kolbe",
+            "target": "Tavini",
+            "reason": "moots"
+        },
+        {
+            "source": "Kolbe",
+            "target": "Anisa",
+            "reason": "Coworkers"
+        },
+        {
+            "source": "Kolbe",
+            "target": "Nate",
+            "reason": "Colby"
+        },
+        {
+            "source": "Kolbe",
+            "target": "Colby",
+            "reason": "Boyfriend"
+        },
+        {
+            "source": "Kolbe",
+            "target": "Preyonty",
+            "reason": null
+        },
+        {
+            "source": "Ethan",
+            "target": "Emmett",
+            "reason": "Coworker"
+        },
+        {
+            "source": "Emmett",
+            "target": "Mabel",
             "reason": "College"
         },
         {
-            "source": "Alex",
-            "target": "Emma",
+            "source": "Mabel",
+            "target": "Steven",
+            "reason": "Boyfriend"
+        },
+        {
+            "source": "Sabriya",
+            "target": "Tavini",
+            "reason": "moots"
+        },
+        {
+            "source": "Sabriya",
+            "target": "Preyonty",
             "reason": null
         },
         {
-            "source": "Ben",
-            "target": "Sarah",
+            "source": "Tavini",
+            "target": "Anisa",
+            "reason": "insta mutuals"
+        },
+        {
+            "source": "Cody",
+            "target": "Marlo",
+            "reason": "Coworkers"
+        },
+        {
+            "source": "Cody",
+            "target": "Juhi",
+            "reason": null
+        },
+        {
+            "source": "Anisa",
+            "target": "Isabella",
+            "reason": "Roommates"
+        },
+        {
+            "source": "Nate",
+            "target": "Colby",
+            "reason": "1st grade"
+        },
+        {
+            "source": "David",
+            "target": "Ryan Z",
+            "reason": "lovers"
+        },
+        {
+            "source": "David",
+            "target": "Ami B",
             "reason": "College"
         },
         {
-            "source": "Ben",
-            "target": "Jack",
-            "reason": null
-        },
-        {
-            "source": "Emma",
-            "target": "Chris",
-            "reason": "Work"
-        },
-        {
-            "source": "Emma",
-            "target": "Maya",
-            "reason": "Work"
-        },
-        {
-            "source": "Emma",
-            "target": "Sarah",
-            "reason": null
-        },
-        {
-            "source": "Sarah",
-            "target": "Jack",
+            "source": "Ryan Z",
+            "target": "Ami B",
             "reason": "College"
         },
         {
-            "source": "Jack",
-            "target": "Luke",
-            "reason": "Hometown"
+            "source": "Ami B",
+            "target": "Dylan",
+            "reason": "College"
         },
         {
-            "source": "Jack",
-            "target": "Ava",
-            "reason": "Hometown"
+            "source": "Ami B",
+            "target": "Marlo",
+            "reason": "Coworkers"
         },
         {
-            "source": "Chris",
-            "target": "Maya",
-            "reason": "Work"
+            "source": "Ami B",
+            "target": "Verna",
+            "reason": "College"
         },
         {
-            "source": "Chris",
-            "target": "Noah",
-            "reason": "Work"
+            "source": "Ami B",
+            "target": "Juhi",
+            "reason": "College"
         },
         {
-            "source": "Maya",
-            "target": "Noah",
-            "reason": "Work"
+            "source": "Ami B",
+            "target": "Shah",
+            "reason": "Pickleball"
         },
         {
-            "source": "Noah",
-            "target": "Ava",
+            "source": "Ami B",
+            "target": "Nhi",
+            "reason": "Roommates"
+        },
+        {
+            "source": "Kate",
+            "target": "Marlo",
+            "reason": "Girlfriend"
+        },
+        {
+            "source": "Marlo",
+            "target": "Dylan",
+            "reason": "Coworkers"
+        },
+        {
+            "source": "Marlo",
+            "target": "Juhi",
             "reason": null
         },
         {
-            "source": "Luke",
-            "target": "Ava",
-            "reason": "Hometown"
+            "source": "Nhi",
+            "target": "Aditi",
+            "reason": null
         },
         {
-            "source": "Luke",
-            "target": "Sofia",
-            "reason": "Hometown"
+            "source": "Nhi",
+            "target": "Aryan",
+            "reason": null
         },
         {
-            "source": "Ava",
-            "target": "Sofia",
-            "reason": "Hometown"
+            "source": "Nhi",
+            "target": "Priya",
+            "reason": "friends"
+        },
+        {
+            "source": "Nhi",
+            "target": "Bent",
+            "reason": null
+        },
+        {
+            "source": "Nhi",
+            "target": "Helen",
+            "reason": "friends"
+        },
+        {
+            "source": "Aditi",
+            "target": "Aryan",
+            "reason": null
+        },
+        {
+            "source": "Aditi",
+            "target": "Shivani",
+            "reason": null
+        },
+        {
+            "source": "Aditi",
+            "target": "Bent",
+            "reason": null
+        },
+        {
+            "source": "Aryan",
+            "target": "Shivani",
+            "reason": null
+        },
+        {
+            "source": "Aryan",
+            "target": "Bent",
+            "reason": null
+        },
+        {
+            "source": "Shivani",
+            "target": "Madison",
+            "reason": "Coworkers"
+        },
+        {
+            "source": "Shivani",
+            "target": "Bent",
+            "reason": null
+        },
+        {
+            "source": "Shivani",
+            "target": "Katherine",
+            "reason": null
+        },
+        {
+            "source": "Shivani",
+            "target": "Veronica",
+            "reason": "Highschool"
+        },
+        {
+            "source": "Shivani",
+            "target": "Zeel",
+            "reason": null
+        },
+        {
+            "source": "Shivani",
+            "target": "Helen",
+            "reason": "friends"
+        },
+        {
+            "source": "Shivani",
+            "target": "Erin",
+            "reason": null
+        },
+        {
+            "source": "Priya",
+            "target": "Rana",
+            "reason": "friends"
+        },
+        {
+            "source": "Bent",
+            "target": "Helen",
+            "reason": null
+        },
+        {
+            "source": "Helen",
+            "target": "Zeel",
+            "reason": "Coworkers"
+        },
+        {
+            "source": "Helen",
+            "target": "Mandy",
+            "reason": "Roommates"
+        },
+        {
+            "source": "Helen",
+            "target": "Veronica",
+            "reason": "Coworkers"
+        },
+        {
+            "source": "Helen",
+            "target": "Katherine",
+            "reason": "Coworkers"
+        },
+        {
+            "source": "Katherine",
+            "target": "Veronica",
+            "reason": "Coworkers"
+        },
+        {
+            "source": "Katherine",
+            "target": "Erin",
+            "reason": null
+        },
+        {
+            "source": "Veronica",
+            "target": "Zeel",
+            "reason": null
+        },
+        {
+            "source": "Veronica",
+            "target": "Mandy",
+            "reason": "Roommates"
+        },
+        {
+            "source": "Annie",
+            "target": "Eva",
+            "reason": "Apt"
+        },
+        {
+            "source": "Eva",
+            "target": "Tiffany",
+            "reason": null
+        },
+        {
+            "source": "Param",
+            "target": "Teja",
+            "reason": null
+        },
+        {
+            "source": "Param",
+            "target": "Abhi",
+            "reason": null
+        },
+        {
+            "source": "Teja",
+            "target": "Abhi",
+            "reason": null
+        },
+        {
+            "source": "Teja",
+            "target": "Bor",
+            "reason": null
+        },
+        {
+            "source": "Abhi",
+            "target": "Bor",
+            "reason": null
         }
     ]
 }
