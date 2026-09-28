@@ -33,7 +33,7 @@ def main():
         "docs/graph.json"
     )
 
-    print("Created web/graph.json")
+    print("Created doc/graph.json")
 
 
 if __name__ == "__main__":
